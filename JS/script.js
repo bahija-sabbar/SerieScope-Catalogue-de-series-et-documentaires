@@ -53,7 +53,12 @@ function creeCard(serie) {
 
   const p = document.createElement('p')
   p.className = 'text-xs text-zinc-300 mt-2'
-  p.textContent = serie.summary.slice(4,50)+".";
+ const textePropre = (serie.summary || "Pas de description")
+  .replace(/<[^>]*>/g, "");
+
+p.textContent = textePropre.slice(0, 50) + ".";
+
+
   div.appendChild(p);
 
   article.appendChild(div);
@@ -162,6 +167,8 @@ fetch(api)
   
 
 function validerFormulaire(titre, genre) {
+  erreurNom.textContent="";
+  erreurGenre.textContent="";
 let  Valide=true;
 
    if (titre === "") {
@@ -195,14 +202,17 @@ function ajouterSerie(event) {
    const nouvelleSerie = {
     name: nom,
     language: "Non renseigné",
-    genres: genre.split(',').map(g => g.trim()).filter(g => g !== ""),
+    genres: [genre],
     status: "Non renseigné",
     image: null,
     summary: desc
   };
+
     series.unshift(nouvelleSerie);
-event.target.reset();
-alert('Série ajoutée avec succès')
+   event.target.reset();
+   const genres = extraireGenres(series);
+   remplirGenres(genres);
+   alert('Série ajoutée avec succès')
  actualiserCatalogue();
 
 
