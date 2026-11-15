@@ -7,11 +7,14 @@ function creeCard(serie) {
   const img = document.createElement('img');
   img.className = "w-full h-40 object-cover rounded-t-xl"
 
-  if (serie.image) {
-    img.src = serie.image.original;
-  } else {
-    img.src = "/JS/image/image.png";
-  }
+if (serie.image) {
+  img.src = serie.image.medium;
+} else {
+  img.src = "JS/image/image.png";
+}
+img.onerror = () => {
+  img.src = "JS/image/image.png";
+};
   img.alt = serie.name;
   article.appendChild(img)
 
