@@ -1,21 +1,3 @@
-// const serieExemple = [
-//   {
-//     id: "demo-1",
-//     name: "Les Explorateurs",
-//     language: "French",
-//     genres: ["Adventure", "Drama"],
-//     status: "Running",
-//     image: null
-//   },
-//   {
-//     id: "demo-2",
-//     name: "Les Explorateurs",
-//     language: "French",
-//     genres: ["Adventure", "Drama"],
-//     status: "Running",
-//     image: null
-//   }
-// ];
 
 const catalogue = document.querySelector('#catalogue');
 
