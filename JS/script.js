@@ -196,7 +196,7 @@ function ajouterSerie(event) {
    const nouvelleSerie = {
     name: nom,
     language: "Non renseigné",
-    genres: genre.split(',').map(g => g.trim()).filter(g => g !== ""),
+    genres: [genre],
     status: "Non renseigné",
     image: null,
     summary: desc
